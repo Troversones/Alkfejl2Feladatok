@@ -1,4 +1,6 @@
-﻿namespace Testapp1
+﻿using Serilog;
+
+namespace Testapp1
 {
     internal class Program
     {
@@ -7,6 +9,14 @@
             Console.WriteLine("Hello, World!");
             string hehe = Console.ReadLine();
             Console.WriteLine(hehe + " ezaz kristály");
+
+            var log = new LoggerConfiguration()
+                .WriteTo.Console()
+                .MinimumLevel.Debug()
+                .CreateLogger();
+
+            log.Debug("hi");
+            log.Information("hello");
         }
     }
 }
